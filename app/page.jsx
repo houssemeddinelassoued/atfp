@@ -1,6 +1,8 @@
 "use client";
 
+// Imports React et composant UI
 import React, { useState } from "react";
+// Icônes lucide-react pour le design
 import {
   Globe,
   MapPin,
@@ -13,25 +15,33 @@ import {
   X,
 } from "lucide-react";
 
+/**
+ * Composant principal du site CFA Bizerte
+ * Affiche une page bilingue (FR/AR) avec présentation de formations et contact
+ */
 export default function Home() {
-  const [lang, setLang] = useState("fr"); // "fr" or "ar"
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [openSectors, setOpenSectors] = useState([]);
+  // États React pour gérer la langue (FR/AR), menu mobile, et sections ouvertes
+  const [lang, setLang] = useState("fr"); // "fr" = Français, "ar" = Arabe
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // Menu mobile ouvert/fermé
+  const [openSectors, setOpenSectors] = useState([]); // Secteurs dépliés pour les spécialités
 
+  // Bascule la langue entre français et arabe
   const toggleLang = () => {
     setLang((prev) => (prev === "fr" ? "ar" : "fr"));
-    setIsMenuOpen(false);
+    setIsMenuOpen(false); // Ferme le menu en changeant de langue
   };
 
+  // Détermine si le texte doit être en right-to-left (RTL) pour l'arabe
   const isRtl = lang === "ar";
 
-  // Fichiers attendus dans /public
+  // Configuration des images (fichiers dans le dossier /public)
   const IMAGES = {
-    logo: "/logo.png",
-    hero: "/cfa-entree.png",
-    building: "/cfa-batiment.png",
+    logo: "/logo.png", // Logo du centre
+    hero: "/cfa-entree.png", // Image d'entrée du centre
+    building: "/cfa-batiment.png", // Photo du bâtiment
   };
 
+  // Contenu bilingue du site (FR et AR)
   const content = {
     fr: {
       title: "Centre de Formation et d'Apprentissage de Bizerte",
@@ -84,6 +94,7 @@ export default function Home() {
     },
   };
 
+  // Liste de toutes les spécialités de formation
   const courses = [
     {
       sector: { fr: "Confection", ar: "الخياطة" },
@@ -198,17 +209,20 @@ export default function Home() {
     },
   ];
 
+  // Regroupe les spécialités par secteur pour afficher les dropdowns
   const groupedCourses = courses.reduce((acc, course) => {
-    const key = course.sector.fr;
+    const key = course.sector.fr; // Utilise le nom français comme clé
     if (!acc[key]) {
-      acc[key] = { sector: course.sector, items: [] };
+      acc[key] = { sector: course.sector, items: [] }; // Crée un groupe pour ce secteur
     }
-    acc[key].items.push(course);
+    acc[key].items.push(course); // Ajoute la spécialité au groupe
     return acc;
   }, {});
 
+  // Sélectionne le contenu dans la langue actuelle
   const t = content[lang];
 
+  // Convertit l'objet groupé en tableau pour la boucle map
   const groupedList = Object.values(groupedCourses);
 
   return (
@@ -218,6 +232,7 @@ export default function Home() {
       }`}
       dir={isRtl ? "rtl" : "ltr"}
     >
+      {/* Barre de navigation sticky */}
       <nav className="bg-white shadow-md sticky top-0 z-50 border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-20 items-center">
@@ -358,6 +373,7 @@ export default function Home() {
         </div>
       </div>
 
+      {/* Section Spécialités - Liste regroupée par secteur avec dropdowns */}
       <div id="specialties" className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -369,21 +385,24 @@ export default function Home() {
             </p>
           </div>
 
+          {/* Affiche chaque secteur avec ses spécialités en dropdown */}
           <div className="space-y-4">
             {groupedList.map((group) => {
+              // Vérifie si ce secteur est actuellement ouvert
               const isOpen = openSectors.includes(group.sector.fr);
               return (
                 <div
                   key={group.sector.fr}
                   className="bg-white border border-gray-200 rounded-lg shadow-sm"
                 >
+                  {/* Bouton pour dérouler/fermer le secteur */}
                   <button
                     type="button"
                     onClick={() =>
                       setOpenSectors((prev) =>
                         prev.includes(group.sector.fr)
-                          ? prev.filter((key) => key !== group.sector.fr)
-                          : [...prev, group.sector.fr]
+                          ? prev.filter((key) => key !== group.sector.fr) // Ferme le secteur
+                          : [...prev, group.sector.fr] // Ouvre le secteur
                       )
                     }
                     className="w-full px-6 py-4 flex items-center justify-between"
@@ -400,6 +419,7 @@ export default function Home() {
                     />
                   </button>
 
+                  {/* Affiche la table des spécialités si le secteur est ouvert */}
                   {isOpen && (
                     <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                       <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
@@ -465,6 +485,7 @@ export default function Home() {
         </div>
       </div>
 
+      {/* Section Apprentissage Professionnel - Opportunité de formation */}
       <div className="bg-white py-16 border-t border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
@@ -508,6 +529,7 @@ export default function Home() {
         </div>
       </div>
 
+      {/* Section Contact - Informations et carte Google */}
       <div id="contact" className="bg-gray-50 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="lg:grid lg:grid-cols-2 lg:gap-8 items-center">
@@ -586,6 +608,7 @@ export default function Home() {
         </div>
       </div>
 
+      {/* Pied de page */}
       <footer className="bg-gray-900 text-white py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
           <div className="mb-4 md:mb-0 text-center md:text-start rtl:text-right">
