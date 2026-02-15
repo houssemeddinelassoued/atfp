@@ -1,41 +1,96 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# CFA Bizerte - Centre de Formation et d'Apprentissage
 
-## Getting Started
+Site Web de présentation du Centre de Formation et d'Apprentissage de Bizerte (ATFP). Plateforme bilingue (Français/Arabe) présentant les spécialités de formation, informations de contact et opportunités d'apprentissage professionnel.
 
-First, run the development server:
+**🌐 Live:** https://atfp.vercel.app/
 
+## 📋 Features
+
+- ✅ **Bilingue** : Support complet Français (FR) et Arabe (AR) avec RTL
+- ✅ **Spécialités groupées** : Dropdowns par sous-secteur pour meilleure navigation
+- ✅ **Design responsive** : Optimisé pour desktop, tablet, mobile
+- ✅ **Performance** : Built with Next.js 16 et Turbopack
+- ✅ **Accessibilité** : Tailwind CSS + lucide-react icons
+
+## 🛠 Tech Stack
+
+- [Next.js 16](https://nextjs.org/) - React framework
+- [Tailwind CSS](https://tailwindcss.com/) - Styling
+- [Lucide React](https://lucide.dev/) - Icons
+- [Vercel](https://vercel.com) - Hosting & Deployment
+
+## 🚀 Démarrage rapide
+
+### Installation
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Mode développement
+```bash
+npm run dev
+```
+Ouvre [http://localhost:3000](http://localhost:3000) dans le navigateur.
 
-You can start editing the page by modifying `app/page.jsx`. The page auto-updates as you edit the file.
+### Production
+```bash
+npm run build
+npm run start
+```
 
-Images used by the home page are expected in the `public/` folder:
-- `public/logo.png`
-- `public/cfa-entree.png`
-- `public/cfa-batiment.png`
+## 📁 Structure du Projet
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+app/
+  ├── page.jsx          # Main page (composant client bilingue)
+  ├── layout.js         # Root layout
+  ├── globals.css       # Tailwind config
+public/
+  ├── logo.png          # Logo ATFP
+  ├── cfa-entree.png    # Entrance image
+  └── cfa-batiment.png  # Building image
+```
 
-## Learn More
+## 🖼 Images Requises
 
-To learn more about Next.js, take a look at the following resources:
+Les images suivantes doivent être placées dans le dossier `public/` :
+- `logo.png` - Logo du centre
+- `cfa-entree.png` - Photo d'entrée du centre
+- `cfa-batiment.png` - Photo du bâtiment du centre
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Si manquantes, des placeholders s'affichent automatiquement.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📝 Contenu Bilingue
 
-## Deploy on Vercel
+Les spécialités et contenus sont entièrement traduits en:
+- **Français (FR)** - Défaut
+- **Arabe (AR)** - Right-to-left layout
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Changement de langue via le bouton globe en haut à droite.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🚢 Déploiement
+
+### Sur Vercel (Production)
+Le projet est automatiquement déployé sur Vercel à chaque push sur `main`:
+- Repository: https://github.com/houssemeddinelassoued/atfp
+- Production URL: https://atfp.vercel.app/
+
+### Build & Deploy Local
+```bash
+npm run build
+npm run start
+```
+
+## 📚 Documentation
+
+- [Next.js Docs](https://nextjs.org/docs)
+- [Tailwind CSS Docs](https://tailwindcss.com/docs)
+- [Lucide Icons](https://lucide.dev/icons/)
+
+## 📄 Licence
+
+Projet du Centre de Formation et d'Apprentissage de Bizerte (ATFP)
+
+---
+
+**Contact:** cfa.bizerte@atfp.tn | 📞 72 436 133

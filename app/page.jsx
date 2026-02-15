@@ -47,7 +47,9 @@ export default function Home() {
       apprenticeshipTitle: "Apprentissage Professionnel",
       apprenticeshipText:
         "Le centre offre également la possibilité d'un apprentissage professionnel dans toutes les spécialités disponibles. Cette opportunité est ouverte aux jeunes âgés de 15 à 20 ans ayant un niveau scolaire inférieur à la 9ème année de base, leur permettant d'acquérir des compétences pratiques directement auprès des artisans et entreprises partenaires.",
-      address: "Avenue Farhat Hached, Oued Elmarej, 7000 Bizerte",
+      address: "37 Avenue de la liberté, Tunis, Tunisia, 1002",
+      email: "dic@takwin.atfp.tn",
+      website: "atfp.tn",
       links: "Liens Utiles",
       followUs: "Suivez-nous",
       rights: "Tous droits réservés.",
@@ -69,7 +71,9 @@ export default function Home() {
       apprenticeshipTitle: "التدريب المهني",
       apprenticeshipText:
         "يوفر المركز إمكانية التدريب المهني في جميع الاختصاصات المتوفرة بالجهة لدى الحرفيين والمؤسسات. هذا المسار متاح لمن لهم مستوى دراسي دون التاسعة أساسي وتتراوح أعمارهم بين 15 و 20 سنة، مما يتيح لهم اكتساب مهارات عملية مباشرة في سوق العمل.",
-      address: "شارع فرحات حشاد - 7000 بنزرت - الهاتف: 72436133 - الفاكس: 72433064",
+      address: "37 شارع الحرية، تونس، تونس، 1002",
+      email: "dic@takwin.atfp.tn",
+      website: "atfp.tn",
       links: "روابط مفيدة",
       followUs: "تابعونا",
       rights: "جميع الحقوق محفوظة.",
@@ -535,7 +539,7 @@ export default function Home() {
                     <Mail className="h-6 w-6 text-red-600" />
                   </div>
                   <div className="ml-3 rtl:mr-3 rtl:ml-0 text-base text-gray-600">
-                    <p>cfa.bizerte@atfp.tn</p>
+                    <p>{t.email}</p>
                   </div>
                 </div>
 
@@ -545,25 +549,22 @@ export default function Home() {
                   </h3>
                   <div className="flex flex-col gap-3">
                     <a
-                      href="#"
+                      href="https://www.facebook.com/atfp.tn/"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="flex items-center gap-3 text-blue-600 hover:text-blue-800 transition-colors"
                     >
                       <Facebook size={20} />
-                      <span>Orientation CFA Bizerte</span>
+                      <span>ATFP Official</span>
                     </a>
                     <a
-                      href="#"
+                      href="http://atfp.tn"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="flex items-center gap-3 text-blue-600 hover:text-blue-800 transition-colors"
                     >
-                      <Facebook size={20} />
-                      <span>Centre de formation et d'apprentissage de Bizerte</span>
-                    </a>
-                    <a
-                      href="#"
-                      className="flex items-center gap-3 text-blue-600 hover:text-blue-800 transition-colors"
-                    >
-                      <Facebook size={20} />
-                      <span>Tremplin vers l'entreprenariat Bizerte</span>
+                      <Globe size={20} />
+                      <span>{t.website}</span>
                     </a>
                   </div>
                 </div>
@@ -578,7 +579,7 @@ export default function Home() {
                 loading="lazy"
                 allowFullScreen
                 title="Map"
-                src="https://www.google.com/maps?q=37.264250,9.866579&z=15&output=embed"
+                src="https://www.google.com/maps?q=36.8065,10.1956&z=13&output=embed"
               ></iframe>
             </div>
           </div>
@@ -591,13 +592,13 @@ export default function Home() {
             <p className="text-sm text-gray-400">
               © 2024 CFA Bizerte. {t.rights}
             </p>
-            <p className="text-xs text-gray-600 mt-1">A.R.E 2020</p>
+            <p className="text-xs text-gray-600 mt-1">Développé par Jawher Cheikh - 2026 | Projet Personnel</p>
           </div>
           <div className="flex space-x-6 rtl:space-x-reverse">
-            <a href="#" className="text-gray-400 hover:text-white transition-colors">
+            <a href="https://www.facebook.com/atfp.tn/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
               <Facebook className="h-5 w-5" />
             </a>
-            <a href="#" className="text-gray-400 hover:text-white transition-colors">
+            <a href="mailto:dic@takwin.atfp.tn" className="text-gray-400 hover:text-white transition-colors">
               <Mail className="h-5 w-5" />
             </a>
           </div>
